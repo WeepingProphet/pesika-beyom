@@ -146,7 +146,11 @@
 </section>
 
 <section id="short-sec" style="display:none;padding:72px 22px;text-align:center;background:var(--ink)">
-  <h3 style="color:var(--oxblood);font-weight:800;letter-spacing:4px;font-size:clamp(20px,4vw,28px);margin:0 0 22px">הגרסה הקצרה · 90 שניות</h3>
+  <h3 style="color:var(--oxblood);font-weight:800;letter-spacing:4px;font-size:clamp(20px,4vw,28px);margin:0 0 18px">הגרסה הקצרה · 90 שניות</h3>
+  <div id="short-ab" style="display:none;justify-content:center;gap:10px;margin:0 0 18px">
+    <button class="abtn" data-v="a" style="background:var(--oxblood);color:var(--bone);border:2px solid var(--oxblood);border-radius:999px;padding:8px 22px;font-family:inherit;font-weight:700;font-size:17px;cursor:pointer">גרסה א׳ · קול יציב</button>
+    <button class="abtn" data-v="b" style="background:transparent;color:var(--bone);border:2px solid var(--oxblood);border-radius:999px;padding:8px 22px;font-family:inherit;font-weight:700;font-size:17px;cursor:pointer">גרסה ב׳ · קול חופשי</button>
+  </div>
   <video id="short-vid" controls playsinline preload="metadata" style="max-height:80vh;max-width:100%;width:auto;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.5);background:#000"></video>
 </section>
 
@@ -175,7 +179,9 @@ window.ESSAY = {"title": "מאחורי הפרגוד: איך שישה סרטונ�
   if(E.hook){document.getElementById('h-val').textContent=E.hook.value||'';document.getElementById('h-lbl').textContent=E.hook.label||'';}
   if(E.cases&&E.cases.length) document.getElementById('f-cases').textContent='🏛️ '+E.cases.join(' · ');
   if(E.judges&&E.judges.length) document.getElementById('f-judges').textContent='⚖️ '+E.judges.join(' · ');
-  if(E.shortFile){var _sv=document.getElementById('short-vid');_sv.src=E.shortFile;document.getElementById('short-sec').style.display='block';}
+  if(E.shortFile){var _sv=document.getElementById('short-vid');_sv.src=E.shortFile;document.getElementById('short-sec').style.display='block';
+    if(E.shortFileB){var _ab=document.getElementById('short-ab');_ab.style.display='flex';var _srcs={a:E.shortFile,b:E.shortFileB};
+      _ab.querySelectorAll('.abtn').forEach(function(b){b.onclick=function(){_ab.querySelectorAll('.abtn').forEach(function(x){x.style.background='transparent';});b.style.background='var(--oxblood)';_sv.src=_srcs[b.getAttribute('data-v')];_sv.load();};});}}
 
   // ---- visual renderers ----
   function di(i){return 'style="animation-delay:'+(i*0.08)+'s"';}
