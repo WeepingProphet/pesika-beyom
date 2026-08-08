@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T12:34:07+03:00",
+  "generated_at": "2026-08-08T21:22:37+03:00",
   "outlook": {
     "next_publish_day": "2026-08-09",
     "queue_days_remaining": 9
@@ -8,7 +8,8 @@
     "total": 10,
     "website": 10,
     "youtube": 5,
-    "spotify": 12
+    "spotify": 12,
+    "tiktok": 0
   },
   "pipeline_today": {
     "stage": "RENDERED",
@@ -32,6 +33,41 @@
   },
   "failures_7d": [
     {
+      "ts": "2026-08-08T20:51:36+03:00",
+      "step": "tiktok_check",
+      "error": "captcha challenge at own profile"
+    },
+    {
+      "ts": "2026-08-08T20:48:39+03:00",
+      "step": "tiktok_profile",
+      "error": "error"
+    },
+    {
+      "ts": "2026-08-08T20:46:32+03:00",
+      "step": "tiktok_check",
+      "error": "captcha challenge at own profile"
+    },
+    {
+      "ts": "2026-08-08T20:36:28+03:00",
+      "step": "tiktok_login",
+      "error": "unknown"
+    },
+    {
+      "ts": "2026-08-08T20:17:28+03:00",
+      "step": "tiktok_login",
+      "error": ""
+    },
+    {
+      "ts": "2026-08-08T20:00:08+03:00",
+      "step": "tiktok_signup",
+      "error": "web signup app-forced: code accepted (twice) but account never created; login says 'Account doesn't exist'. Needs app-side completion or different egress"
+    },
+    {
+      "ts": "2026-08-08T19:26:32+03:00",
+      "step": "tiktok_signup",
+      "error": "blocked: [email] already has a TikTok account (plus-alias normalized too); founder/architect decision needed"
+    },
+    {
       "ts": "2026-08-08T12:08:03+03:00",
       "step": "preflight",
       "error": "MemAvailable 2.4GB (need 99)"
@@ -40,7 +76,8 @@
   "sessions": {
     "google_oauth_ok": null,
     "spotify_session_ok": null,
-    "last_checked": null
+    "tiktok_session_ok": true,
+    "last_checked": "2026-08-08T21:01:57+03:00"
   },
   "episodes": [
     {
@@ -51,6 +88,7 @@
       "youtube": "pModnFbmiGg",
       "youtube_short": "fP62jHTqKoI",
       "spotify": null,
+      "tiktok": null,
       "cost_usd": 1.79
     },
     {
@@ -61,6 +99,7 @@
       "youtube": "c2Faw8bzh6s",
       "youtube_short": "Hc90wN-BWnw",
       "spotify": "https://open.spotify.com/episode/4CQmGBahT8gaHRPXMX7SgS",
+      "tiktok": null,
       "cost_usd": 1.11
     },
     {
@@ -71,6 +110,7 @@
       "youtube": "2b_mfDRpPK0",
       "youtube_short": "Ky008MrIeSw",
       "spotify": "https://open.spotify.com/episode/4xNgftMJ42QkL7zZSl0o79",
+      "tiktok": null,
       "cost_usd": 1.11
     },
     {
@@ -81,6 +121,7 @@
       "youtube": "LBb78ry_Q8E",
       "youtube_short": "48HBHyyqAzc",
       "spotify": "https://open.spotify.com/episode/3TmK1sJI4qeUpnumFHOKtj",
+      "tiktok": null,
       "cost_usd": 1.15
     },
     {
@@ -91,6 +132,7 @@
       "youtube": "CDFJaL2P0V4",
       "youtube_short": "9qvFCGamIjs",
       "spotify": "https://open.spotify.com/episode/5CBwCfezFvmnKuUQMGxNQp",
+      "tiktok": null,
       "cost_usd": 6.24
     },
     {
@@ -101,6 +143,7 @@
       "youtube": null,
       "youtube_short": null,
       "spotify": "https://open.spotify.com/episode/5vmjQSNcVuZyFl9d3JyK06",
+      "tiktok": null,
       "cost_usd": null
     },
     {
@@ -111,6 +154,7 @@
       "youtube": null,
       "youtube_short": null,
       "spotify": "https://open.spotify.com/episode/4v7R7SjqiZBmadVtPAVkiH",
+      "tiktok": null,
       "cost_usd": null
     },
     {
@@ -121,6 +165,7 @@
       "youtube": null,
       "youtube_short": null,
       "spotify": "https://open.spotify.com/episode/0LdvXcruVyRCJJaX0SIiop",
+      "tiktok": null,
       "cost_usd": null
     },
     {
@@ -131,6 +176,7 @@
       "youtube": null,
       "youtube_short": null,
       "spotify": "https://open.spotify.com/episode/4UG1WKibw1X7NFjBhutgt9",
+      "tiktok": null,
       "cost_usd": null
     },
     {
@@ -141,153 +187,155 @@
       "youtube": null,
       "youtube_short": null,
       "spotify": "https://open.spotify.com/episode/0pfzMMt3C9xkW86Bg4wwr9",
+      "tiktok": null,
       "cost_usd": null
     }
   ],
   "activity": [
     {
-      "ts": "2026-08-08T12:34:01+03:00",
-      "step": "integrate",
+      "ts": "2026-08-08T21:01:57+03:00",
+      "step": "tiktok_check",
       "status": "ok",
       "episode": null,
-      "duration_s": null
+      "duration_s": 13.09
     },
     {
-      "ts": "2026-08-08T12:33:25+03:00",
-      "step": "integrate",
-      "status": "ok",
+      "ts": "2026-08-08T21:01:57+03:00",
+      "step": "tiktok",
+      "status": "warning",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:21:45.785063+03:00",
-      "step": "oauth_production_flip",
-      "status": "ok",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:11:56+03:00",
-      "step": "build",
-      "status": "ok",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:11:20+03:00",
-      "step": "picker",
-      "status": "skipped",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:11:05+03:00",
-      "step": "picker",
-      "status": "skipped",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:11:04+03:00",
-      "step": "picker",
-      "status": "ok",
-      "episode": "1lYR93uQcX6LY2-hSnS7umhiTKYGEJ8-6",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:11:03+03:00",
-      "step": "picker",
+      "ts": "2026-08-08T21:01:44+03:00",
+      "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:11:02+03:00",
-      "step": "picker",
+      "ts": "2026-08-08T21:01:39+03:00",
+      "step": "tiktok_check",
       "status": "ok",
-      "episode": "1zgF8sh-P2F5EOWHWSq0sBebmqIAzqmhz",
-      "duration_s": null
+      "episode": null,
+      "duration_s": 7.55
     },
     {
-      "ts": "2026-08-08T12:11:00+03:00",
-      "step": "picker",
+      "ts": "2026-08-08T21:01:31+03:00",
+      "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:10:21+03:00",
-      "step": "picker",
-      "status": "ok",
+      "ts": "2026-08-08T20:51:36+03:00",
+      "step": "tiktok_check",
+      "status": "error",
       "episode": null,
-      "duration_s": null
+      "duration_s": 15.38
     },
     {
-      "ts": "2026-08-08T12:09:28+03:00",
-      "step": "build",
-      "status": "ok",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:08:20+03:00",
-      "step": "build",
-      "status": "ok",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:08:03+03:00",
-      "step": "preflight",
-      "status": "critical",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T12:08:03+03:00",
-      "step": "preflight",
+      "ts": "2026-08-08T20:51:20+03:00",
+      "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:03:13.861685+03:00",
-      "step": "oauth_recovered",
+      "ts": "2026-08-08T20:50:56+03:00",
+      "step": "tiktok_profile",
       "status": "ok",
+      "episode": null,
+      "duration_s": 44.55
+    },
+    {
+      "ts": "2026-08-08T20:50:12+03:00",
+      "step": "tiktok_profile",
+      "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:03:13.861621+03:00",
-      "step": "oauth_consent_clickthrough",
-      "status": "ok",
+      "ts": "2026-08-08T20:48:39+03:00",
+      "step": "tiktok_profile",
+      "status": "error",
+      "episode": null,
+      "duration_s": 27.8
+    },
+    {
+      "ts": "2026-08-08T20:48:11+03:00",
+      "step": "tiktok_profile",
+      "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T12:00:14.080902+03:00",
-      "step": "oauth_2fa_number_relay",
-      "status": "ok",
+      "ts": "2026-08-08T20:46:32+03:00",
+      "step": "tiktok_check",
+      "status": "error",
+      "episode": null,
+      "duration_s": 13.78
+    },
+    {
+      "ts": "2026-08-08T20:46:18+03:00",
+      "step": "tiktok_check",
+      "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T11:58:30.774405+03:00",
-      "step": "oauth_flow_start",
+      "ts": "2026-08-08T20:45:54+03:00",
+      "step": "tiktok_login",
       "status": "ok",
+      "episode": null,
+      "duration_s": 300.25
+    },
+    {
+      "ts": "2026-08-08T20:40:54+03:00",
+      "step": "tiktok_login",
+      "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T11:58:30.774388+03:00",
-      "step": "stale_lock",
-      "status": "ok",
+      "ts": "2026-08-08T20:36:53+03:00",
+      "step": "tiktok_login",
+      "status": "start",
       "episode": null,
       "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T20:36:28+03:00",
+      "step": "tiktok_login",
+      "status": "error",
+      "episode": null,
+      "duration_s": 620.29
+    },
+    {
+      "ts": "2026-08-08T20:26:07+03:00",
+      "step": "tiktok_login",
+      "status": "start",
+      "episode": null,
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T20:21:03+03:00",
+      "step": "tiktok_login",
+      "status": "start",
+      "episode": null,
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T20:17:28+03:00",
+      "step": "tiktok_login",
+      "status": "error",
+      "episode": null,
+      "duration_s": 26.91
     }
   ],
   "meta": {
     "site": "https://psika.nivsimon.co.il",
+    "tiktok_handle": "psika.beyom",
     "numbering": "publications.json",
     "stubs": [
       "picked.json missing - picker ledger not yet built"

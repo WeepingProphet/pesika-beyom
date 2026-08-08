@@ -80,6 +80,17 @@
   .st-crit  .dot { background: var(--critical); }
   .st-idle  .dot { background: var(--ink-3); }
 
+  /* session-health chips */
+  .sess {
+    display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: baseline;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 10px;
+  }
+  .sess .note { color: var(--ink-3); font-size: .72rem; }
+
   /* failures strip */
   .alerts {
     background: var(--critical-bg);
@@ -173,6 +184,8 @@
   </div>
 </section>
 
+<div class="sess" id="sessions" hidden></div>
+
 <div class="alerts" id="alerts" hidden>
   <span class="chip st-crit"><span class="dot"></span>תקלות בשבוע האחרון</span>
   <div id="alerts-body"></div>
@@ -184,7 +197,7 @@
     <thead>
       <tr>
         <th>#</th><th>פרק</th><th>תאריך</th>
-        <th>אתר</th><th>יוטיוב</th><th>ספוטיפיי</th><th>עלות</th>
+        <th>אתר</th><th>יוטיוב</th><th>ספוטיפיי</th><th>🎵 טיקטוק</th><th>עלות</th>
       </tr>
     </thead>
     <tbody id="episodes"></tbody>
@@ -239,8 +252,10 @@ function render(s) {
   // tiles
   const p = s.published || {};
   el("t-published").textContent = p.total ?? "–";
+  // tiktok null/absent = account not created yet -> "בהקמה", never broken
   el("t-published-hint").textContent =
-      `אתר ${p.website ?? "–"} · יוטיוב ${p.youtube ?? "–"} · ספוטיפיי ${p.spotify ?? "–"}`;
+      `אתר ${p.website ?? "–"} · יוטיוב ${p.youtube ?? "–"} · ספוטיפיי ${p.spotify ?? "–"}`
+      + ` · טיקטוק ${p.tiktok ?? "בהקמה"}`;
 
   const q = s.queue || {};
   el("t-queue").textContent = q.bucket_depth ?? "—";
@@ -261,6 +276,25 @@ function render(s) {
     pt.episode, pt.since ? "מאז " + fmtTime(pt.since) : "",
     s.outlook?.next_publish_day ? "ריצה הבאה: " + fmtDate(s.outlook.next_publish_day) : "",
   ].filter(Boolean).join(" · ");
+
+  // session-health chips (google/spotify may still be stubbed null =
+  // "לא נבדק"; tiktok null = account being set up = "בהקמה")
+  const sessChip = (name, ok, nullLabel) => {
+    const [label, cls] = ok === true ? ["תקין", "st-good"]
+        : ok === false ? ["דורש טיפול", "st-crit"]
+        : [nullLabel, "st-idle"];
+    return `<span class="chip ${cls}"><span class="dot"></span>${esc(name)} · ${esc(label)}</span>`;
+  };
+  const ss = s.sessions || {};
+  const tkName = "🎵 טיקטוק" + (s.meta?.tiktok_handle
+      ? " (@" + String(s.meta.tiktok_handle).replace(/^@/, "") + ")" : "");
+  el("sessions").hidden = false;
+  el("sessions").innerHTML =
+      sessChip("גוגל", ss.google_oauth_ok, "לא נבדק")
+      + sessChip("ספוטיפיי", ss.spotify_session_ok, "לא נבדק")
+      + sessChip(tkName, ss.tiktok_session_ok, "בהקמה")
+      + (ss.last_checked
+          ? `<span class="note">נבדק: ${esc(fmtTime(ss.last_checked))}</span>` : "");
 
   // failures strip
   const fails = s.failures_7d || [];
@@ -284,9 +318,10 @@ function render(s) {
       <td>${mark(!!e.essay, e.essay ? `../essays/${e.essay}/` : null)}</td>
       <td>${mark(!!e.youtube, e.youtube ? `https://youtu.be/${e.youtube}` : null)}</td>
       <td>${mark(!!e.spotify, typeof e.spotify === "string" && e.spotify.startsWith("http") ? e.spotify : null)}</td>
+      <td>${mark(!!e.tiktok, typeof e.tiktok === "string" && e.tiktok.startsWith("http") ? e.tiktok : null)}</td>
       <td class="num">${usd(e.cost_usd)}</td>
     </tr>`).join("")
-    || `<tr><td colspan="7" class="empty">אין פרקים עדיין</td></tr>`;
+    || `<tr><td colspan="8" class="empty">אין פרקים עדיין</td></tr>`;
 
   // activity feed
   const acts = s.activity || [];
