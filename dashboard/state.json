@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-08T21:22:37+03:00",
+  "generated_at": "2026-08-08T22:02:39+03:00",
   "outlook": {
     "next_publish_day": "2026-08-09",
     "queue_days_remaining": 9
@@ -9,7 +9,7 @@
     "website": 10,
     "youtube": 5,
     "spotify": 12,
-    "tiktok": 0
+    "tiktok": 1
   },
   "pipeline_today": {
     "stage": "RENDERED",
@@ -32,6 +32,46 @@
     "avg_per_episode_usd": 2.28
   },
   "failures_7d": [
+    {
+      "ts": "2026-08-08T21:58:00+03:00",
+      "step": "tiktok",
+      "error": "caption: Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".public-DraftEditor-content\").first\n    - locator resolved to <div role=\"combobox\" spellcheck=\"false\" aria-expanded"
+    },
+    {
+      "ts": "2026-08-08T21:42:38+03:00",
+      "step": "tiktok_check",
+      "error": "session expired: studio bounced to https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2Ftiktokstudio&enter_method=redirect&enter_from=tiktokstudio"
+    },
+    {
+      "ts": "2026-08-08T21:36:30+03:00",
+      "step": "tiktok_check",
+      "error": "session expired: studio bounced to https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2Ftiktokstudio&enter_method=redirect&enter_from=tiktokstudio"
+    },
+    {
+      "ts": "2026-08-08T21:31:56+03:00",
+      "step": "tiktok_login",
+      "error": "headed driven login: no logged-in state"
+    },
+    {
+      "ts": "2026-08-08T21:25:50+03:00",
+      "step": "tiktok_login",
+      "error": "headed driven login: no logged-in state"
+    },
+    {
+      "ts": "2026-08-08T21:24:26+03:00",
+      "step": "tiktok_login",
+      "error": "captcha challenge at after login submit"
+    },
+    {
+      "ts": "2026-08-08T21:23:52+03:00",
+      "step": "tiktok_check",
+      "error": "session expired: studio bounced to https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2Ftiktokstudio&enter_method=redirect&enter_from=tiktokstudio"
+    },
+    {
+      "ts": "2026-08-08T21:23:30+03:00",
+      "step": "tiktok",
+      "error": "session expired during posts_scan: posts scan: bounced to https://www.tiktok.com/login?redirect_url=https%3A%2F%2Fwww.tiktok.com%2Ftiktokstudio%2Fcontent&enter_method=redirect&enter_from=tiktokstudio"
+    },
     {
       "ts": "2026-08-08T20:51:36+03:00",
       "step": "tiktok_check",
@@ -77,7 +117,7 @@
     "google_oauth_ok": null,
     "spotify_session_ok": null,
     "tiktok_session_ok": true,
-    "last_checked": "2026-08-08T21:01:57+03:00"
+    "last_checked": "2026-08-08T22:01:09+03:00"
   },
   "episodes": [
     {
@@ -99,7 +139,7 @@
       "youtube": "c2Faw8bzh6s",
       "youtube_short": "Hc90wN-BWnw",
       "spotify": "https://open.spotify.com/episode/4CQmGBahT8gaHRPXMX7SgS",
-      "tiktok": null,
+      "tiktok": "https://www.tiktok.com/@psika.beyom/video/7671737511051349268",
       "cost_usd": 1.11
     },
     {
@@ -193,144 +233,144 @@
   ],
   "activity": [
     {
-      "ts": "2026-08-08T21:01:57+03:00",
-      "step": "tiktok_check",
+      "ts": "2026-08-08T22:01:09+03:00",
+      "step": "tiktok",
       "status": "ok",
-      "episode": null,
-      "duration_s": 13.09
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": 119.81
     },
     {
-      "ts": "2026-08-08T21:01:57+03:00",
+      "ts": "2026-08-08T22:01:03+03:00",
       "step": "tiktok",
       "status": "warning",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:01:44+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
+      "ts": "2026-08-08T21:59:58+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:01:39+03:00",
+      "ts": "2026-08-08T21:59:35+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:59:25+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:59:09+03:00",
+      "step": "tiktok",
+      "status": "start",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:58:00+03:00",
+      "step": "tiktok",
+      "status": "error",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": 57.13
+    },
+    {
+      "ts": "2026-08-08T21:57:30+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:57:19+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:57:03+03:00",
+      "step": "tiktok",
+      "status": "start",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:45:20+03:00",
+      "step": "tiktok",
+      "status": "progress",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:45:03+03:00",
+      "step": "tiktok",
+      "status": "start",
+      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-08T21:44:46+03:00",
       "step": "tiktok_check",
       "status": "ok",
       "episode": null,
-      "duration_s": 7.55
+      "duration_s": 7.76
     },
     {
-      "ts": "2026-08-08T21:01:31+03:00",
+      "ts": "2026-08-08T21:44:39+03:00",
       "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T20:51:36+03:00",
+      "ts": "2026-08-08T21:43:04+03:00",
       "step": "tiktok_check",
-      "status": "error",
-      "episode": null,
-      "duration_s": 15.38
-    },
-    {
-      "ts": "2026-08-08T20:51:20+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T20:50:56+03:00",
-      "step": "tiktok_profile",
       "status": "ok",
       "episode": null,
-      "duration_s": 44.55
+      "duration_s": 7.51
     },
     {
-      "ts": "2026-08-08T20:50:12+03:00",
-      "step": "tiktok_profile",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T20:48:39+03:00",
-      "step": "tiktok_profile",
-      "status": "error",
-      "episode": null,
-      "duration_s": 27.8
-    },
-    {
-      "ts": "2026-08-08T20:48:11+03:00",
-      "step": "tiktok_profile",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T20:46:32+03:00",
-      "step": "tiktok_check",
-      "status": "error",
-      "episode": null,
-      "duration_s": 13.78
-    },
-    {
-      "ts": "2026-08-08T20:46:18+03:00",
+      "ts": "2026-08-08T21:42:57+03:00",
       "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T20:45:54+03:00",
-      "step": "tiktok_login",
-      "status": "ok",
-      "episode": null,
-      "duration_s": 300.25
-    },
-    {
-      "ts": "2026-08-08T20:40:54+03:00",
-      "step": "tiktok_login",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T20:36:53+03:00",
-      "step": "tiktok_login",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T20:36:28+03:00",
-      "step": "tiktok_login",
+      "ts": "2026-08-08T21:42:38+03:00",
+      "step": "tiktok_check",
       "status": "error",
       "episode": null,
-      "duration_s": 620.29
+      "duration_s": 7.62
     },
     {
-      "ts": "2026-08-08T20:26:07+03:00",
-      "step": "tiktok_login",
+      "ts": "2026-08-08T21:42:31+03:00",
+      "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T20:21:03+03:00",
-      "step": "tiktok_login",
+      "ts": "2026-08-08T21:40:30+03:00",
+      "step": "tiktok_check",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T20:17:28+03:00",
-      "step": "tiktok_login",
-      "status": "error",
+      "ts": "2026-08-08T21:38:30+03:00",
+      "step": "tiktok_check",
+      "status": "start",
       "episode": null,
-      "duration_s": 26.91
+      "duration_s": null
     }
   ],
   "meta": {
