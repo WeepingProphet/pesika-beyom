@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>פסיקה ביום · לוח בקרה</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --surface: #fcfcfb;
+    --card: #ffffff;
+    --border: #e6e4df;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --ink-3: #8a8880;
+    --accent: #2a78d6;
+    --good: #0ca30c;
+    --warning: #fab219;
+    --critical: #d03b3b;
+    --critical-bg: #fbeaea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface: #1a1a19;
+      --card: #232322;
+      --border: #383835;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --ink-3: #8a8880;
+      --accent: #3987e5;
+      --critical-bg: #3a2222;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--surface);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, "Heebo", "Noto Sans Hebrew",
+                 Arial, sans-serif;
+    line-height: 1.5;
+    padding: 16px;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+  header { margin-bottom: 16px; }
+  h1 { font-size: 1.3rem; font-weight: 700; }
+  .sub { color: var(--ink-3); font-size: .8rem; margin-top: 2px; }
+  h2 {
+    font-size: .85rem; font-weight: 600; color: var(--ink-2);
+    margin: 22px 0 8px;
+  }
+  .num { direction: ltr; unicode-bidi: isolate; font-variant-numeric: tabular-nums; }
+
+  /* headline tiles */
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+  }
+  .tile {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .tile .label { font-size: .75rem; color: var(--ink-2); }
+  .tile .value { font-size: 1.6rem; font-weight: 700; margin-top: 2px; }
+  .tile .value.small { font-size: 1.05rem; line-height: 1.3; }
+  .tile .hint { font-size: .72rem; color: var(--ink-3); margin-top: 2px; }
+
+  /* status chip - icon + label, never color alone */
+  .chip {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: .78rem; font-weight: 600;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .st-good  .dot { background: var(--good); }
+  .st-warn  .dot { background: var(--warning); }
+  .st-crit  .dot { background: var(--critical); }
+  .st-idle  .dot { background: var(--ink-3); }
+
+  /* failures strip */
+  .alerts {
+    background: var(--critical-bg);
+    border: 1px solid var(--critical);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-top: 16px;
+    font-size: .82rem;
+  }
+  .alerts .row { margin-top: 4px; color: var(--ink-2); overflow-wrap: anywhere; }
+  .alerts .row:first-of-type { margin-top: 6px; }
+  .alerts b { color: var(--ink); }
+
+  /* episodes table */
+  .tablewrap {
+    overflow-x: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  table { border-collapse: collapse; width: 100%; font-size: .82rem; }
+  th, td {
+    padding: 8px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  tr:last-child td { border-bottom: none; }
+  th { color: var(--ink-2); font-weight: 600; font-size: .74rem; }
+  td.title-cell {
+    white-space: normal; min-width: 150px; max-width: 300px;
+    overflow-wrap: anywhere;
+  }
+  td a { color: var(--accent); text-decoration: none; }
+  td a:hover { text-decoration: underline; }
+  .yes { color: var(--good); font-weight: 700; }
+  .no { color: var(--ink-3); }
+
+  /* activity feed */
+  .feed {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px 14px;
+    font-size: .8rem;
+  }
+  .feed .ev {
+    display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .feed .ev:last-child { border-bottom: none; }
+  .feed time { color: var(--ink-3); font-size: .72rem; flex: none; }
+  .feed .what {
+    color: var(--ink-2); overflow-wrap: anywhere;
+    flex: 1 1 100%;
+  }
+  .empty { color: var(--ink-3); font-size: .8rem; padding: 10px 2px; }
+  footer { color: var(--ink-3); font-size: .72rem; margin-top: 24px; }
+  #error { display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1>פסיקה ביום · לוח בקרה</h1>
+  <div class="sub" id="generated">טוען…</div>
+</header>
+
+<div class="alerts" id="error">⚠️ לא הצלחתי לטעון את הנתונים (state.json)</div>
+
+<section class="tiles" id="tiles" hidden>
+  <div class="tile">
+    <div class="label">פרקים שפורסמו</div>
+    <div class="value num" id="t-published">–</div>
+    <div class="hint" id="t-published-hint"></div>
+  </div>
+  <div class="tile">
+    <div class="label">בתור (דלי)</div>
+    <div class="value num" id="t-queue">–</div>
+    <div class="hint" id="t-queue-hint"></div>
+  </div>
+  <div class="tile">
+    <div class="label">עלות מצטברת (TTS)</div>
+    <div class="value num" id="t-cost">–</div>
+    <div class="hint" id="t-cost-hint"></div>
+  </div>
+  <div class="tile">
+    <div class="label">סטטוס היום</div>
+    <div class="value small" id="t-status">–</div>
+    <div class="hint" id="t-status-hint"></div>
+  </div>
+</section>
+
+<div class="alerts" id="alerts" hidden>
+  <span class="chip st-crit"><span class="dot"></span>תקלות בשבוע האחרון</span>
+  <div id="alerts-body"></div>
+</div>
+
+<h2>פרקים אחרונים לפי פלטפורמה</h2>
+<div class="tablewrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th><th>פרק</th><th>תאריך</th>
+        <th>אתר</th><th>יוטיוב</th><th>ספוטיפיי</th><th>עלות</th>
+      </tr>
+    </thead>
+    <tbody id="episodes"></tbody>
+  </table>
+</div>
+
+<h2>יומן פעילות</h2>
+<div class="feed" id="feed"><div class="empty">אין אירועים עדיין</div></div>
+
+<footer id="meta"></footer>
+
+<script>
+"use strict";
+const STAGES = {
+  IDLE: ["המערכת במנוחה", "st-idle"],
+  PRODUCING: ["מפיקה פרק", "st-warn"],
+  QA_PENDING: ["ממתין לאישור אודיו", "st-warn"],
+  QA_SENT: ["ממתין לאישור אודיו", "st-warn"],
+  APPROVED: ["אודיו אושר", "st-good"],
+  RENDERING: ["מרנדרת וידאו", "st-warn"],
+  RENDERED: ["ממתין לאישור פרסום", "st-warn"],
+  PUBLISHING: ["מפרסמת", "st-warn"],
+  PUBLISHED: ["פורסם", "st-good"],
+};
+const fmtDate = (iso) => {
+  if (!iso) return "–";
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleDateString("he-IL",
+      { day: "2-digit", month: "2-digit", year: "numeric" });
+};
+const fmtTime = (iso) => {
+  if (!iso) return "";
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString("he-IL",
+      { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
+};
+const usd = (v) => v == null ? "–" : "$" + v.toFixed(2);
+const el = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g,
+    c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+function stageLabel(stage) {
+  if (!stage) return ["לא ידוע", "st-idle"];
+  if (stage.startsWith("FAILED")) return ["תקלה: " + stage, "st-crit"];
+  return STAGES[stage] || [stage, "st-idle"];
+}
+
+function render(s) {
+  el("tiles").hidden = false;
+  el("generated").textContent = "עודכן: " + fmtTime(s.generated_at);
+
+  // tiles
+  const p = s.published || {};
+  el("t-published").textContent = p.total ?? "–";
+  el("t-published-hint").textContent =
+      `אתר ${p.website ?? "–"} · יוטיוב ${p.youtube ?? "–"} · ספוטיפיי ${p.spotify ?? "–"}`;
+
+  const q = s.queue || {};
+  el("t-queue").textContent = q.bucket_depth ?? "—";
+  el("t-queue-hint").textContent = q.bucket_depth == null
+      ? "ספירת הדלי טרם מחוברת"
+      : `≈ ${s.outlook?.queue_days_remaining ?? q.bucket_depth} ימי פרסום`;
+
+  const c = s.costs || {};
+  el("t-cost").textContent = usd(c.total_usd);
+  el("t-cost-hint").textContent =
+      `30 יום: ${usd(c.last_30d_usd)} · ממוצע לפרק: ${usd(c.avg_per_episode_usd)}`;
+
+  const pt = s.pipeline_today || {};
+  const [label, cls] = pt.paused ? ["מושהה", "st-warn"] : stageLabel(pt.stage);
+  el("t-status").innerHTML =
+      `<span class="chip ${cls}"><span class="dot"></span>${esc(label)}</span>`;
+  el("t-status-hint").textContent = [
+    pt.episode, pt.since ? "מאז " + fmtTime(pt.since) : "",
+    s.outlook?.next_publish_day ? "ריצה הבאה: " + fmtDate(s.outlook.next_publish_day) : "",
+  ].filter(Boolean).join(" · ");
+
+  // failures strip
+  const fails = s.failures_7d || [];
+  if (fails.length) {
+    el("alerts").hidden = false;
+    el("alerts-body").innerHTML = fails.map(f =>
+      `<div class="row"><b>${esc(f.step)}</b> · ${esc(fmtTime(f.ts))} · ${esc(f.error)}</div>`
+    ).join("");
+  }
+
+  // episodes table
+  const mark = (ok, href) => ok
+      ? (href ? `<a href="${esc(href)}" target="_blank" rel="noopener" class="yes">✓</a>`
+              : `<span class="yes">✓</span>`)
+      : `<span class="no">—</span>`;
+  el("episodes").innerHTML = (s.episodes || []).map(e => `
+    <tr>
+      <td class="num">${e.number ?? "–"}</td>
+      <td class="title-cell">${esc(e.title)}</td>
+      <td class="num">${fmtDate(e.date)}</td>
+      <td>${mark(!!e.essay, e.essay ? `../essays/${e.essay}/` : null)}</td>
+      <td>${mark(!!e.youtube, e.youtube ? `https://youtu.be/${e.youtube}` : null)}</td>
+      <td>${mark(!!e.spotify, typeof e.spotify === "string" && e.spotify.startsWith("http") ? e.spotify : null)}</td>
+      <td class="num">${usd(e.cost_usd)}</td>
+    </tr>`).join("")
+    || `<tr><td colspan="7" class="empty">אין פרקים עדיין</td></tr>`;
+
+  // activity feed
+  const acts = s.activity || [];
+  if (acts.length) {
+    el("feed").innerHTML = acts.map(ev => {
+      const bad = ev.status === "error" || ev.status === "critical";
+      const extra = ev.error
+          || (typeof ev.detail === "string" ? ev.detail : "");
+      return `<div class="ev">
+        <time class="num">${esc(fmtTime(ev.ts))}</time>
+        <span class="chip ${bad ? "st-crit" : "st-good"}"><span class="dot"></span>${esc(ev.step ?? "?")}</span>
+        <span class="what">${esc(ev.status ?? "")}${extra ? " · " + esc(String(extra).slice(0, 160)) : ""}</span>
+      </div>`;
+    }).join("");
+  }
+
+  // footer notes (stubbed sections)
+  const stubs = s.meta?.stubs || [];
+  el("meta").textContent = stubs.length
+      ? "נתונים חלקיים: " + stubs.join(" | ") : "";
+}
+
+fetch("./state.json", { cache: "no-store" })
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(render)
+  .catch(err => {
+    el("generated").textContent = "";
+    el("error").style.display = "block";
+    console.error(err);
+  });
+</script>
+</body>
+</html>
