@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-08-08T22:02:39+03:00",
+  "generated_at": "2026-08-09T08:26:45+03:00",
   "outlook": {
-    "next_publish_day": "2026-08-09",
-    "queue_days_remaining": 9
+    "next_publish_day": "2026-08-10",
+    "queue_days_remaining": 8
   },
   "published": {
-    "total": 10,
-    "website": 10,
-    "youtube": 5,
-    "spotify": 12,
+    "total": 11,
+    "website": 11,
+    "youtube": 6,
+    "spotify": 14,
     "tiktok": 1
   },
   "pipeline_today": {
@@ -19,19 +19,44 @@
     "paused": false
   },
   "queue": {
-    "bucket_depth": 9,
+    "bucket_depth": 8,
     "inbox_depth": 0,
     "oldest_bucket_file": "2026-07-14"
   },
   "costs": {
-    "total_usd": 12.53,
-    "logged_usd": 10.45,
+    "total_usd": 13.55,
+    "logged_usd": 11.47,
     "estimated_usd": 2.08,
-    "last_30d_usd": 12.53,
-    "last_episode_usd": 1.79,
-    "avg_per_episode_usd": 2.28
+    "last_30d_usd": 13.55,
+    "last_episode_usd": 1.02,
+    "avg_per_episode_usd": 2.07
   },
   "failures_7d": [
+    {
+      "ts": "2026-08-09T07:59:22+03:00",
+      "step": "spotify",
+      "error": "episode_upload: episode published but not found on Episodes page"
+    },
+    {
+      "ts": "2026-08-09T07:59:22+03:00",
+      "step": "spotify",
+      "error": "ublish_episode\n    raise RuntimeError(\"episode published but not found on Episodes page\")\nRuntimeError: episode published but not found on Episodes page\n[07:59:22] saved failure artifacts: /home/niv/P"
+    },
+    {
+      "ts": "2026-08-09T07:23:12+03:00",
+      "step": "spotify",
+      "error": "episode_upload: episode published but not found on Episodes page"
+    },
+    {
+      "ts": "2026-08-09T07:23:12+03:00",
+      "step": "spotify",
+      "error": "ublish_episode\n    raise RuntimeError(\"episode published but not found on Episodes page\")\nRuntimeError: episode published but not found on Episodes page\n[07:23:12] saved failure artifacts: /home/niv/P"
+    },
+    {
+      "ts": "2026-08-09T07:23:12+03:00",
+      "step": "platform_sweep",
+      "error": "ublish_episode\n    raise RuntimeError(\"episode published but not found on Episodes page\")\nRuntimeError: episode published but not found on Episodes page\n[07:23:12] saved failure artifacts: /home/niv/P"
+    },
     {
       "ts": "2026-08-08T21:58:00+03:00",
       "step": "tiktok",
@@ -117,17 +142,28 @@
     "google_oauth_ok": null,
     "spotify_session_ok": null,
     "tiktok_session_ok": true,
-    "last_checked": "2026-08-08T22:01:09+03:00"
+    "last_checked": "2026-08-09T07:20:06+03:00"
   },
   "episodes": [
     {
-      "number": null,
+      "number": 13,
+      "title": "שטר של 200, סכין אחת, 21 שנה",
+      "date": "2026-08-09",
+      "essay": "ep_30f33a9a",
+      "youtube": "WSknLE5olXQ",
+      "youtube_short": "jy04jVt_NKA",
+      "spotify": "https://open.spotify.com/episode/0YJkj0Jz4D3IS1zgChssPj",
+      "tiktok": null,
+      "cost_usd": 1.02
+    },
+    {
+      "number": 14,
       "title": "חוק יסוד בתפירה אישית",
       "date": "2026-07-25",
       "essay": "ep_1102ff59",
       "youtube": "pModnFbmiGg",
       "youtube_short": "fP62jHTqKoI",
-      "spotify": null,
+      "spotify": "https://open.spotify.com/episode/41iErqgUSyQb12BKzSJOpL",
       "tiktok": null,
       "cost_usd": 1.79
     },
@@ -233,152 +269,150 @@
   ],
   "activity": [
     {
-      "ts": "2026-08-08T22:01:09+03:00",
-      "step": "tiktok",
+      "ts": "2026-08-09T08:22:13+03:00",
+      "step": "spotify",
       "status": "ok",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": 119.81
-    },
-    {
-      "ts": "2026-08-08T22:01:03+03:00",
-      "step": "tiktok",
-      "status": "warning",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:59:58+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "ts": "2026-08-09T08:22:13+03:00",
+      "step": "spotify",
+      "status": "ok",
+      "episode": "1Y9nExMUXwGiQE4biTLi3aet4mU-FiwyM",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:59:35+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "ts": "2026-08-09T08:22:13+03:00",
+      "step": "spotify",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:59:25+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "ts": "2026-08-09T07:59:25+03:00",
+      "step": "dashboard",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:59:09+03:00",
-      "step": "tiktok",
+      "ts": "2026-08-09T07:59:24+03:00",
+      "step": "publish",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 387.74
+    },
+    {
+      "ts": "2026-08-09T07:59:24+03:00",
+      "step": "archive",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 1.67
+    },
+    {
+      "ts": "2026-08-09T07:59:22+03:00",
+      "step": "archive",
       "status": "start",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:58:00+03:00",
+      "ts": "2026-08-09T07:59:22+03:00",
       "step": "tiktok",
+      "status": "skipped",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:59:22+03:00",
+      "step": "spotify",
       "status": "error",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": 57.13
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 269.01
     },
     {
-      "ts": "2026-08-08T21:57:30+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:57:19+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:57:03+03:00",
-      "step": "tiktok",
-      "status": "start",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:45:20+03:00",
-      "step": "tiktok",
-      "status": "progress",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:45:03+03:00",
-      "step": "tiktok",
-      "status": "start",
-      "episode": "1fNkK0_izbuOG9hCst2DUyhY7N3-NydlV",
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:44:46+03:00",
-      "step": "tiktok_check",
-      "status": "ok",
-      "episode": null,
-      "duration_s": 7.76
-    },
-    {
-      "ts": "2026-08-08T21:44:39+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:43:04+03:00",
-      "step": "tiktok_check",
-      "status": "ok",
-      "episode": null,
-      "duration_s": 7.51
-    },
-    {
-      "ts": "2026-08-08T21:42:57+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
-    },
-    {
-      "ts": "2026-08-08T21:42:38+03:00",
-      "step": "tiktok_check",
+      "ts": "2026-08-09T07:59:22+03:00",
+      "step": "spotify",
       "status": "error",
-      "episode": null,
-      "duration_s": 7.62
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 268.88
     },
     {
-      "ts": "2026-08-08T21:42:31+03:00",
-      "step": "tiktok_check",
+      "ts": "2026-08-09T07:54:53+03:00",
+      "step": "spotify",
+      "status": "start",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:54:53+03:00",
+      "step": "publish_essay",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 13.77
+    },
+    {
+      "ts": "2026-08-09T07:54:39+03:00",
+      "step": "publish_essay",
+      "status": "start",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:54:39+03:00",
+      "step": "publish_youtube",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 102.95
+    },
+    {
+      "ts": "2026-08-09T07:52:56+03:00",
+      "step": "publish_youtube",
+      "status": "start",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:52:56+03:00",
+      "step": "publish",
+      "status": "start",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:52:56+03:00",
+      "step": "preflight",
+      "status": "ok",
+      "episode": null,
+      "duration_s": null
+    },
+    {
+      "ts": "2026-08-09T07:52:56+03:00",
+      "step": "preflight",
       "status": "start",
       "episode": null,
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:40:30+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
+      "ts": "2026-08-09T07:52:55+03:00",
+      "step": "publish_approve",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
       "duration_s": null
     },
     {
-      "ts": "2026-08-08T21:38:30+03:00",
-      "step": "tiktok_check",
-      "status": "start",
-      "episode": null,
-      "duration_s": null
+      "ts": "2026-08-09T07:52:44+03:00",
+      "step": "render",
+      "status": "ok",
+      "episode": "1114dCl4pdBS2oKTdUgNsDHVGqinpqIyp",
+      "duration_s": 1069.93
     }
   ],
   "meta": {
     "site": "https://psika.nivsimon.co.il",
     "tiktok_handle": "psika.beyom",
     "numbering": "publications.json",
-    "stubs": [
-      "picked.json missing - picker ledger not yet built"
-    ]
+    "stubs": []
   }
 }
