@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>מי כתוב בתעודת הלידה של הילד שלך? · פסיקה ביום</title>
+<meta name="description" content="תשע משפחות, שתי אימהות בכל אחת, ושורה אחת במסמך שהמדינה טענה שאי אפשר לשנות." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#141010; --ink2:#1f1917; --bone:#f3efe8; --oxblood:#7a1f1f;
+    --omer:#d9694f; --maya:#5cb3a6; --muted:#b8afa4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--ink);color:var(--bone);font-family:Rubik,system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
+  a{color:var(--maya)}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px}
+
+  /* ---- hero ---- */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;position:relative;padding:60px 22px;overflow:hidden}
+  .hero .kicker{color:var(--oxblood);font-weight:800;letter-spacing:6px;font-size:16px}
+  .hero h1{font-size:clamp(34px,7vw,68px);font-weight:900;line-height:1.1;margin:14px 0 10px;max-width:14ch}
+  .hero .dek{color:var(--muted);font-size:clamp(18px,3.4vw,26px);max-width:30ch;margin:0 auto}
+  .hook{margin-top:46px}
+  .hook .val{font-size:clamp(90px,26vw,220px);font-weight:900;line-height:.9;color:var(--bone);
+    text-shadow:0 8px 40px rgba(0,0,0,.5)}
+  .hook .lbl{color:var(--muted);font-size:clamp(16px,3.6vw,22px);max-width:24ch;margin:14px auto 0}
+  .scrollcue{position:absolute;bottom:26px;color:var(--muted);font-size:15px;letter-spacing:2px;animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+  .courthouse{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.06;z-index:-1}
+  .courthouse svg{width:min(760px,90vw)}
+
+  /* ---- scrolly ---- */
+  .scrolly{position:relative}
+  .scrolly__graphic{position:sticky;top:0;height:100vh;display:flex;align-items:flex-start;justify-content:center;padding:5vh 16px 0}
+  .gfx{width:100%;max-width:720px;max-height:58vh;overflow:hidden}
+  .scrolly__steps{position:relative;margin-top:-100vh;z-index:2}
+  .step{min-height:100vh;display:flex;align-items:flex-end;justify-content:center;padding:0 18px 5vh}
+  .step .card{background:rgba(17,13,13,.82);backdrop-filter:blur(7px);
+    border:1px solid rgba(122,31,31,.55);border-radius:20px;padding:22px 26px;max-width:560px;
+    font-size:clamp(19px,3.4vw,25px);font-weight:600;transition:opacity .4s, transform .4s;opacity:.35;transform:translateY(10px)}
+  .step.active .card{opacity:1;transform:none;box-shadow:0 20px 50px rgba(0,0,0,.45)}
+  .anno{display:block;margin-top:10px;color:var(--omer);font-size:16px;font-weight:700}
+
+  /* ---- visual components ---- */
+  .vpanel{background:linear-gradient(180deg,#241c1a,#181312);border:2px solid var(--oxblood);
+    border-radius:26px;padding:28px 30px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+  .vtitle{display:flex;align-items:center;gap:10px;color:var(--oxblood);font-weight:800;font-size:26px;margin-bottom:18px}
+  .vtitle i{width:12px;height:12px;background:var(--oxblood);border-radius:3px;display:inline-block}
+  .gv-item{animation:fadeUp .6s both}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  .tl-row{display:flex;gap:16px;margin-bottom:14px}
+  .tl-dot{width:22px;height:22px;border-radius:50%;background:var(--oxblood);flex:0 0 auto;margin-top:4px;box-shadow:0 0 0 5px var(--ink)}
+  .tl-date{color:var(--omer);font-weight:800;font-size:22px}
+  .tl-label{color:var(--bone);font-weight:600;font-size:23px}
+
+  .bar-row{margin-bottom:14px}
+  .bar-head{display:flex;justify-content:space-between;font-weight:700;font-size:23px;margin-bottom:5px}
+  .bar-track{height:22px;background:rgba(243,239,232,.12);border-radius:7px;overflow:hidden}
+  .bar-fill{height:100%;border-radius:7px;width:0;animation:grow 1s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes grow{to{width:var(--w)}}
+  .round-name{color:var(--maya);font-weight:800;font-size:20px;margin:6px 0 8px}
+
+  .stats{display:flex;justify-content:space-around;gap:10px;text-align:center}
+  .stat .val{font-size:clamp(48px,12vw,96px);font-weight:900;line-height:1}
+  .stat .lbl{color:var(--muted);font-size:19px;margin-top:8px}
+
+  .cols{display:flex;gap:20px}
+  .col{flex:1}
+  .col h4{font-size:22px;font-weight:800;margin:0 0 10px;padding-bottom:6px;border-bottom:2px solid}
+  .col.r h4{color:var(--maya);border-color:var(--maya)}
+  .col.l h4{color:var(--omer);border-color:var(--omer)}
+  .col p{margin:0 0 8px;font-size:20px;display:flex;gap:6px}
+  .divider{width:2px;background:rgba(243,239,232,.15)}
+
+  .judge{display:flex;gap:12px;align-items:center;margin-bottom:11px}
+  .judge .d{width:15px;height:15px;border-radius:50%;flex:0 0 auto}
+  .judge .n{font-weight:800;font-size:23px;min-width:150px}
+  .judge .s{color:var(--muted);font-size:20px}
+
+  .verdict{text-align:center;padding:14px 0}
+  .verdict .lbl{color:var(--oxblood);font-weight:700;letter-spacing:2px;font-size:22px}
+  .verdict .val{font-size:clamp(44px,10vw,80px);font-weight:900;margin:8px 0}
+  .verdict .sub{color:var(--muted);font-size:22px}
+
+  .quote{font-size:clamp(24px,4.6vw,36px);font-weight:700;line-height:1.35}
+  .quote .mark{color:var(--oxblood);font-size:80px;line-height:.4;height:34px;font-weight:900}
+  .quote .src{color:var(--maya);font-weight:700;font-size:22px;margin-top:14px}
+
+  .hero-v{text-align:center}
+  .hero-v .val{font-size:clamp(70px,20vw,180px);font-weight:900;line-height:.9}
+  .hero-v .lbl{color:var(--muted);font-size:22px;margin-top:12px}
+
+  /* ---- poll ---- */
+  .poll{padding:90px 22px;text-align:center}
+  .poll h3{font-size:clamp(26px,5vw,40px);font-weight:900;margin:0 0 26px}
+  .poll .opts{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .poll button{background:transparent;border:2px solid var(--oxblood);color:var(--bone);
+    font-family:inherit;font-size:22px;font-weight:800;padding:16px 34px;border-radius:999px;cursor:pointer;transition:.2s}
+  .poll button:hover{background:var(--oxblood)}
+  .poll button.sel{background:var(--oxblood)}
+  .poll .reveal{max-width:34ch;margin:28px auto 0;color:var(--bone);font-size:22px;
+    opacity:0;transform:translateY(10px);transition:.5s}
+  .poll .reveal.show{opacity:1;transform:none}
+
+  /* ---- footer ---- */
+  .foot{border-top:1px solid rgba(243,239,232,.14);padding:60px 22px;text-align:center;color:var(--muted)}
+  .foot .cases{font-size:16px;line-height:1.9}
+  .foot .judges{font-size:16px;margin-top:14px}
+  .foot .brand{color:var(--oxblood);font-weight:800;letter-spacing:4px;margin-top:30px;font-size:20px}
+  .foot a{display:inline-block;margin-top:16px}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important}
+    .step .card{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="courthouse" aria-hidden="true">
+  <svg viewBox="0 0 200 160" fill="none" stroke="#f3efe8" stroke-width="2">
+    <polygon points="15,62 100,14 185,62"/><rect x="18" y="64" width="164" height="10"/>
+    <rect x="28" y="78" width="16" height="60" rx="2"/><rect x="60" y="78" width="16" height="60" rx="2"/>
+    <rect x="92" y="78" width="16" height="60" rx="2"/><rect x="124" y="78" width="16" height="60" rx="2"/>
+    <rect x="156" y="78" width="16" height="60" rx="2"/><rect x="14" y="140" width="172" height="12"/>
+  </svg>
+</div>
+
+<header class="hero">
+  <div class="kicker">פסיקה ביום</div>
+  <h1 id="h-title"></h1>
+  <p class="dek" id="h-dek"></p>
+  <div class="hook"><div class="val" id="h-val"></div><div class="lbl" id="h-lbl"></div></div>
+  <div class="scrollcue">גללו למטה ↓</div>
+</header>
+
+<section class="scrolly">
+  <div class="scrolly__graphic"><div class="gfx" id="gfx"></div></div>
+  <div class="scrolly__steps" id="steps"></div>
+</section>
+
+<section id="short-sec" style="display:none;padding:72px 22px;text-align:center;background:var(--ink)">
+  <h3 style="color:var(--oxblood);font-weight:800;letter-spacing:4px;font-size:clamp(20px,4vw,28px);margin:0 0 18px">הגרסה הקצרה · 90 שניות</h3>
+  <div id="short-ab" style="display:none;justify-content:center;gap:10px;margin:0 0 18px">
+    <button class="abtn" data-v="a" style="background:var(--oxblood);color:var(--bone);border:2px solid var(--oxblood);border-radius:999px;padding:8px 22px;font-family:inherit;font-weight:700;font-size:17px;cursor:pointer">גרסה א׳ · רגיל</button>
+    <button class="abtn" data-v="b" style="background:transparent;color:var(--bone);border:2px solid var(--oxblood);border-radius:999px;padding:8px 22px;font-family:inherit;font-weight:700;font-size:17px;cursor:pointer">גרסה ב׳ · שיחתי</button>
+  </div>
+  <video id="short-vid" controls playsinline preload="metadata" style="max-height:80vh;max-width:100%;width:auto;border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.5);background:#000"></video>
+</section>
+
+<section class="poll" id="poll" hidden>
+  <h3 id="poll-q"></h3>
+  <div class="opts" id="poll-opts"></div>
+  <p class="reveal" id="poll-reveal"></p>
+</section>
+
+<footer class="foot">
+  <div class="cases" id="f-cases"></div>
+  <div class="judges" id="f-judges"></div>
+  <div class="brand">פסיקה ביום</div>
+  <a href="https://open.spotify.com/show/033ItNjBcI2FazFfE4lV4F" target="_blank" rel="noopener">להאזנה לפרק המלא →</a>
+</footer>
+
+<script src="https://unpkg.com/scrollama"></script>
+<script>
+window.ESSAY = {"title": "מי כתוב בתעודת הלידה של הילד שלך?", "dek": "תשע משפחות, שתי אימהות בכל אחת, ושורה אחת במסמך שהמדינה טענה שאי אפשר לשנות.", "hook": {"value": "0", "label": "הוראות בחוק המרשם שקובעות מה תעודת לידה אמורה לתעד. על השאלה הזאת נלחמו כשבע שנים"}, "sections": [{"prose": "אחת מבנות הזוג הרתה מתרומת זרע אנונימית. תעודת הלידה הופקה ובה שם אם אחת. רק אחר כך הגיע צו בית המשפט — וקבע שגם בת זוגה הייתה אמו של הילד מיום הלידה.", "visual": {"type": "timeline", "title": "סדר הדברים בכל תשעת המקרים", "events": [{"date": "יום הלידה", "label": "הודעת לידה נמסרת בתוך עשרה ימים; האם היולדת נרשמת ללא צורך בתעודה ציבורית"}, {"date": "סמוך ללידה", "label": "תעודת הלידה מופקת — שם אם אחת"}, {"date": "אחרי הלידה", "label": "צו אימוץ או צו הורות פסיקתי מכונן את הורות האם השנייה"}, {"date": "רטרואקטיבית", "label": "הצו חל מיום הלידה — אבל התעודה נשארת כפי שהייתה"}]}, "annotation": "בכל המקרים שלפני בית המשפט, המעמד ההורי הוסדר אחרי שהתעודה כבר הונפקה."}, {"prose": "מכאן השאלה שהכריעה הכול: תעודת לידה היא צילום של רגע, או מסמך שמתעדכן? ומה בדיוק היא מצלמת.", "visual": {"type": "contrast", "title": "שתי תפיסות של אותו נייר", "left": {"title": "המדינה", "points": ["התעודה קופאת בזמן", "היא משקפת הורות ביולוגית בעת הלידה", "תיקון רק כשנדרש חיסיון — אימוץ סגור, פונדקאות", "מעמד ההורה הלא ביולוגי מופיע במרשם ובתעודת הזהות"]}, "right": {"title": "העותרים", "points": ["הוצג צו שיפוטי — על פקיד הרישום לרשום", "סעיף 20 לחוק המרשם: יירשמו בכל תעודה לפי חוק זה", "המדיניות מונעת זכויות, כגון אזרחות זרה", "פגיעה בזכות לחיי משפחה ובשוויון"]}}}, {"prose": "במשפט הישראלי אין הגדרה סטטוטורית מיהו הורה. יש ארבעה אדנים — ורק שניים מהם עוברים דרך הגוף.", "visual": {"type": "contrast", "title": "ארבעה אדנים להורות", "left": {"title": "זיקה ביולוגית", "points": ["זיקה גנטית — בעלת הביצית או בעל הזרע", "זיקה פיזיולוגית — מי שנשאה את ההיריון", "האם היולדת נרשמת לפי הודעת לידה"]}, "right": {"title": "הורות ללא זיקה ביולוגית", "points": ["צו אימוץ — בפיקוח בית משפט ועובדים סוציאליים", "זיקה לזיקה — צו הורות פסיקתי", "הורות שאינה נוצרת מאליה: נדרש צו שיפוטי לכינונה"]}}, "annotation": "בית המשפט הדגיש: לאחר הסדרת המעמד, סל הזכויות והחובות של שני ההורים שווה."}, {"prose": "המסלול שבו זוגות נשים עיגנו הורות השתנה פעמיים בעשור. מי שהגיעה מוקדם מדי — הגיעה דרך האימוץ.", "visual": {"type": "stats", "items": [{"value": "2005", "label": "עניין ירוס-חקק: נסללה הדרך לאימוץ ילדה של בת הזוג"}, {"value": "2012", "label": "צו ההורות הפסיקתי הראשון"}, {"value": "2015", "label": "הצו הורחב גם לבת זוגה של מי שילדה מתרומת זרע אנונימית"}, {"value": "2014", "label": "עד סביבות שנה זו — הקבוצה הסגורה של מי שעיגנו הורות בצו אימוץ"}]}}, {"prose": "התיק עצמו נמתח על פני שתי הרכבות שופטים ופסק דין מכונן אחד. משרד הפנים כלל לא השיב לפניות הראשונות.", "visual": {"type": "timeline", "title": "מסלול ההליך", "events": [{"date": "2016", "label": "פניות למשרד הפנים ללא מענה; העתירה מוגשת"}, {"date": "13.1.2017", "label": "תגובה מקדמית: התעודה משקפת את ההורות בעת הלידה גרידא"}, {"date": "18.1.2017", "label": "דיון ראשון; בית המשפט מורה על עתירה מתוקנת"}, {"date": "31.7.2018", "label": "ניתן צו על תנאי כמבוקש — והדיון מושהה"}, {"date": "25.7.2022", "label": "דנ״א פלוני: צו ההורות הפסיקתי הוא צו מכונן"}, {"date": "11.12.2023", "label": "דיון נוסף בהרכב מ״מ הנשיא פוגלמן, שטיין ורונן"}, {"date": "21.3.2024", "label": "פסק הדין"}]}}, {"prose": "המדינה תיארה את מדיניותה כנצחית. בהמשך ההליך התברר אחרת.", "visual": {"type": "quote", "text": "מדיניות זו נוהגת מאז ומעולם", "source": "סעיף 4 לתגובה המקדמית של המשיבים. בהמשך הבהירו המשיבים כי בין 2006 ל-2007 כן הונפקו תעודות לידה מתוקנות עם שמות שתי האימהות על יסוד צו אימוץ, וכי בעבר ניתן היה לבקש נספח לתעודה"}, "annotation": "בית המשפט לא זקף זאת לחובתם: רשות מינהלית רשאית לשנות מדיניות — בתוך גדרי הדין."}, {"prose": "עמדת המדינה נחתכה לשני חלקים. אחד שרד, אחד לא.", "visual": {"type": "voteCompare", "title": "שני רכיבי עמדת המשיבים, שלושה שופטים", "rounds": [{"name": "תעודת הלידה משקפת את מצב הדברים ביום הלידה", "results": [{"name": "התקבלה", "votes": 3}, {"name": "נדחתה", "votes": 0}]}, {"name": "תעודת הלידה משקפת אך הורות ביולוגית", "results": [{"name": "התקבלה", "votes": 0}, {"name": "נדחתה", "votes": 3}]}]}, "annotation": "תקנות הצורה מתייחסות לזהות ההורים באופן ניטרלי, ולא לאדן שעליו ההורות מבוססת."}, {"prose": "וכך ההכרעה תלויה בתאריך אחד: מאיזה יום הצו חל. אם מיום הלידה — התעודה משקרת. אם מיום נתינתו — היא מדויקת.", "visual": {"type": "contrast", "title": "אותו צו, שתי תוצאות", "left": {"title": "תחולה רטרואקטיבית מיום הלידה", "points": ["משפטית — האם הלא ביולוגית הייתה אמו כבר בלידה", "נפוץ מאוד בצווי הורות פסיקתיים", "העתירה התקבלה: תונפק תעודת לידה מתוקנת", "גם צו אימוץ נכנס לתוצאה זו, לפי לשונו הרחבה של סעיף 20"]}, "right": {"title": "תחולה מיום נתינת הצו", "points": ["ביום הלידה טרם הוסדר מעמד ההורה הלא ביולוגי", "מתעורר בעיקר בבקשה שהוגשה אחרי תשעה חודשים מהלידה", "או כשההורים לא ביקשו רטרואקטיביות, או שהבקשה נדחתה", "אין חובה להנפיק תעודה מתוקנת — בכפוף לנסיבות חריגות"]}}, "annotation": "הנמקה מרכזית: תמריץ להסדרה מהירה של מעמד ההורה הלא ביולוגי משרת את טובת הילד."}, {"prose": "פה אחד. שטיין הוסיף מה ייכתב בפועל בשדות התעודה.", "visual": {"type": "judges", "title": "ההרכב", "judges": [{"name": "מ״מ הנשיא ע׳ פוגלמן", "stance": "כתב את פסק הדין: קבלה חלקית של העתירה; הצו על תנאי יהפוך למוחלט; ללא צו הוצאות"}, {"name": "השופטת ר׳ רונן", "stance": "אני מסכימה"}, {"name": "השופט א׳ שטיין", "stance": "מצטרף, ומוסיף: הרישום ייעשה כהורה/הורה, אב/אב או אם/אם — לפי בקשת ההורים החוקיים"}]}}, {"prose": "", "visual": {"type": "verdict", "label": "התוצאה", "value": "העתירה התקבלה חלקית", "sub": "תעודת לידה נועדה לספר את זהות היילוד ביום לידתו — אך לא רק את הורותו הביולוגית. הוצג צו הורות פסיקתי רטרואקטיבי מיום הלידה, או צו אימוץ — תונפק תעודת לידה מתוקנת עם שמות שתי האימהות. צו הורות שתחולתו מיום נתינתו — אין חובה לתקן"}}], "poll": {"question": "איך היית מכריע?", "options": ["התעודה קופאת בזמן — אין לתקן אותה כלל", "לתקן רק כשהצו חל רטרואקטיבית מיום הלידה", "לתקן בכל מקרה שבו הוצג צו הורות או צו אימוץ"], "reveal": "בית המשפט בחר באפשרות האמצעית, והרחיב אותה גם לצווי אימוץ. הוא אימץ את חצי עמדת המדינה — התעודה אכן מתעדת את יום הלידה — אך דחה את החצי השני: אין מקום להבחין בה בין הורות ביולוגית להורות שמבוססת על אדנים אחרים, שכן במישור הדין המהותי ההורות שווה. כשהצו חל מיום הלידה, התיקון אינו תיעוד של התפתחות מאוחרת אלא של מצב הדברים שהדין מכיר בו בעת הלידה. בצו אימוץ הכריעה לשון סעיף 20 — יירשמו בכל תעודה לפי חוק זה — לצד היותה של קבוצה זו סגורה ומתוחמת. בצו פרוספקטיבי, ביום הלידה עוד לא הייתה הורות, והתמריץ להסדרה מהירה שוקל לטובת הילד"}, "method": "כל העובדות, התאריכים והציטוטים מתוך פסק הדין בבג״ץ 7978/16 סיראי ואחרים נ׳ שר הפנים ורשות האוכלוסין וההגירה, שניתן ב-21.3.2024.", "cases": ["בג\"ץ 7978/16"], "judges": ["ממלא מקום הנשיא ע' פוגלמן", "השופט א' שטיין", "השופטת ר' רונן"], "shortFile": "short.mp4"};
+(function(){
+  var E = window.ESSAY, esc = function(s){var d=document.createElement('div');d.textContent=s==null?'':s;return d.innerHTML;};
+
+  // hero + footer
+  document.getElementById('h-title').textContent = E.title||'';
+  document.getElementById('h-dek').textContent = E.dek||'';
+  if(E.hook){document.getElementById('h-val').textContent=E.hook.value||'';document.getElementById('h-lbl').textContent=E.hook.label||'';}
+  if(E.cases&&E.cases.length) document.getElementById('f-cases').textContent='🏛️ '+E.cases.join(' · ');
+  if(E.judges&&E.judges.length) document.getElementById('f-judges').textContent='⚖️ '+E.judges.join(' · ');
+  if(E.shortFile){var _sv=document.getElementById('short-vid');_sv.src=E.shortFile;document.getElementById('short-sec').style.display='block';
+    if(E.shortFileB){var _ab=document.getElementById('short-ab');_ab.style.display='flex';var _srcs={a:E.shortFile,b:E.shortFileB};
+      _ab.querySelectorAll('.abtn').forEach(function(b){b.onclick=function(){_ab.querySelectorAll('.abtn').forEach(function(x){x.style.background='transparent';});b.style.background='var(--oxblood)';_sv.src=_srcs[b.getAttribute('data-v')];_sv.load();};});}}
+
+  // ---- visual renderers ----
+  function di(i){return 'style="animation-delay:'+(i*0.08)+'s"';}
+  function render(v){
+    if(!v) return '';
+    switch(v.type){
+      case 'hero': return '<div class="vpanel hero-v"><div class="val">'+esc(v.value)+'</div><div class="lbl">'+esc(v.label)+'</div></div>';
+      case 'timeline': return '<div class="vpanel">'+vtitle(v.title)+ (v.events||[]).map(function(e,i){
+        return '<div class="tl-row gv-item" '+di(i)+'><span class="tl-dot"></span><div><div class="tl-date">'+esc(e.date)+'</div><div class="tl-label">'+esc(e.label)+'</div></div></div>';}).join('')+'</div>';
+      case 'voteCompare': {
+        var max=1;(v.rounds||[]).forEach(function(r){(r.results||[]).forEach(function(x){if(x.votes>max)max=x.votes;});});
+        return '<div class="vpanel">'+vtitle(v.title)+(v.rounds||[]).map(function(r){
+          var win=Math.max.apply(null,(r.results||[]).map(function(x){return x.votes;}));
+          return '<div class="round-name">'+esc(r.name)+'</div>'+(r.results||[]).map(function(x){
+            var w=Math.round(x.votes/max*100);var c=x.votes===win?'var(--oxblood)':'rgba(217,105,79,.5)';
+            return '<div class="bar-row"><div class="bar-head"><span>'+esc(x.name)+'</span><span data-count="'+x.votes+'">0</span></div><div class="bar-track"><div class="bar-fill" style="--w:'+w+'%;background:'+c+'"></div></div></div>';
+          }).join('');}).join('')+'</div>';
+      }
+      case 'stats': return '<div class="vpanel"><div class="stats">'+(v.items||[]).map(function(it,i){
+        var n=/^\d+$/.test(String(it.value));
+        return '<div class="stat gv-item" '+di(i)+'><div class="val" '+(n?'data-count="'+it.value+'"':'')+'>'+(n?'0':esc(it.value))+'</div><div class="lbl">'+esc(it.label)+'</div></div>';}).join('')+'</div></div>';
+      case 'contrast': return '<div class="vpanel"><div class="cols">'+col(v.right,'r')+'<div class="divider"></div>'+col(v.left,'l')+'</div></div>';
+      case 'judges': return '<div class="vpanel">'+vtitle(v.title)+(v.judges||[]).map(function(j,i){
+        return '<div class="judge gv-item" '+di(i)+'><span class="d" style="background:'+(i===0?'var(--oxblood)':'var(--omer)')+'"></span><span class="n">'+esc(j.name)+'</span><span class="s">'+esc(j.stance)+'</span></div>';}).join('')+'</div>';
+      case 'verdict': return '<div class="vpanel verdict"><div class="lbl">'+esc(v.label)+'</div><div class="val">'+esc(v.value)+'</div>'+(v.sub?'<div class="sub">'+esc(v.sub)+'</div>':'')+'</div>';
+      case 'quote': return '<div class="vpanel quote"><div class="mark">”</div>'+esc(v.text)+(v.source?'<div class="src">— '+esc(v.source)+'</div>':'')+'</div>';
+      default: return '';
+    }
+  }
+  function vtitle(t){return t?'<div class="vtitle"><i></i>'+esc(t)+'</div>':'';}
+  function col(c,cls){if(!c)return '<div class="col"></div>';return '<div class="col '+cls+'"><h4>'+esc(c.title)+'</h4>'+(c.points||[]).map(function(p){return '<p><span>•</span><span>'+esc(p)+'</span></p>';}).join('')+'</div>';}
+
+  function enhance(root){ // count-up numbers
+    root.querySelectorAll('[data-count]').forEach(function(el){
+      var target=parseInt(el.getAttribute('data-count'),10),start=null,dur=900;
+      function tick(ts){if(!start)start=ts;var p=Math.min(1,(ts-start)/dur);el.textContent=Math.round(p*target);if(p<1)requestAnimationFrame(tick);}
+      requestAnimationFrame(tick);
+    });
+  }
+
+  // build steps
+  var stepsEl=document.getElementById('steps');
+  E.sections.forEach(function(s,i){
+    var d=document.createElement('div');d.className='step';d.dataset.idx=i;
+    d.innerHTML='<div class="card">'+esc(s.prose)+(s.annotation?'<span class="anno">'+esc(s.annotation)+'</span>':'')+'</div>';
+    stepsEl.appendChild(d);
+  });
+
+  var gfx=document.getElementById('gfx'),cur=-1;
+  function setActive(i){
+    if(i===cur)return;cur=i;
+    document.querySelectorAll('.step').forEach(function(s,idx){s.classList.toggle('active',idx===i);});
+    gfx.innerHTML=render(E.sections[i].visual);enhance(gfx);
+  }
+  setActive(0);
+
+  if(window.scrollama){
+    var sc=scrollama();
+    sc.setup({step:'.step',offset:0.62}).onStepEnter(function(r){setActive(r.index);});
+    window.addEventListener('resize',sc.resize);
+  }
+
+  // poll
+  if(E.poll&&E.poll.question){
+    var p=document.getElementById('poll');p.hidden=false;
+    document.getElementById('poll-q').textContent=E.poll.question;
+    var opts=document.getElementById('poll-opts'),rev=document.getElementById('poll-reveal');
+    (E.poll.options||[]).forEach(function(o){
+      var b=document.createElement('button');b.textContent=o;
+      b.onclick=function(){opts.querySelectorAll('button').forEach(function(x){x.classList.remove('sel');});b.classList.add('sel');rev.textContent=E.poll.reveal||'';rev.classList.add('show');};
+      opts.appendChild(b);
+    });
+  }
+})();
+</script>
+</body>
+</html>
